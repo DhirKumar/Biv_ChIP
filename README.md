@@ -15,22 +15,22 @@ Step1 : Generate the read tagdensity profiles for each promoter from bed formatt
         -w       number of base pairs to be considered on both sides of the TSS; e.g., 500
         -o      *name of the output file
 File formats: 
-(1)File with gene information (-i) should be provided in the following format
+	(1) File with gene information (-i) should be provided in the following format
    
-   name    chrom   strand  txStart txEnd   cdsStart        cdsEnd  exonCount       exonStarts      exonEnds        name2
-   NM_028778       chr1    +       134212701       134230065       134212806       134228958       7       134212701,134221529,134224273,134224707,134226534,134227135,134227897,  134213049,134221650,134224425,134224773,134226654,134227268,134230065,    Nuak2
-   .....
-(2)File with chromosome length information (-s) should be provided in the following format
+  	 name    chrom   strand  txStart txEnd   cdsStart        cdsEnd  exonCount       exonStarts      exonEnds        name2
+  	 NM_028778       chr1    +       134212701       134230065       134212806       134228958       7       134212701,134221529,134224273,134224707,134226534,134227135,134227897,  134213049,134221650,134224425,134224773,134226654,134227268,134230065,    Nuak2
+  	 .....
+	(2)File with chromosome length information (-s) should be provided in the following format
    
-   chr1    197195432  
-   chr2    181748087
-   .....
+  	 chr1    197195432  
+  	 chr2    181748087
+  	 .....
 	
-(3)File with read alignment data (-b) should be provided in the BED format as follows
+	(3)File with read alignment data (-b) should be provided in the BED format as follows
    
-   chr1    3018108 3018158 U       0       -
-   chr1    3001762 3001812 U       0       -
-   .............
+  	 chr1    3018108 3018158 U       0       -
+  	 chr1    3001762 3001812 U       0       -
+   	 .............
 	   
 The code outputs two files. For the given example-
 (1) H3K27me3_0hr_ES1546_TagDensity.txt -> Average tagdensity vector for each 100bp bin within the promoter window
