@@ -7,7 +7,8 @@ Step1 : Generate the read tagdensity profiles for each promoter from bed formatt
 
 USAGE: genePromoterTagDensity.pl -i <file> -b <file> -s <file> -n <1/0> -d <1/0> -w <number> -o <file>
 
-        -i      File containing list of genes information.      
+USAGE: genePromoterTagDensity.pl -i <file> -b <file> -s <file> -n <1/0> -d <1/0> -w <number> -o <file>
+		-i      File containing list of genes information.      
 		-b      *.bed file 1 with tags in BED format
         -s      *File containing chromsome lengths in UCSC format (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
         -n      1 for normalization by number of tags, 0 otherwise
@@ -15,7 +16,6 @@ USAGE: genePromoterTagDensity.pl -i <file> -b <file> -s <file> -n <1/0> -d <1/0>
         -r      1 (-1/0) if same (opposite, both resp.) strand reads need to be considered; e.g., Gro-Seq data
         -w       number of base pairs to be considered on both sides of the TSS; e.g., 500
         -o      *name of the output file
-
 File formats: 
 (1)File with gene information (-i) should be provided in the following format
    
