@@ -8,7 +8,7 @@ ChIP-Seq Data analysis
 
     USAGE: genePromoterTagDensity.pl -i <file> -b <file> -s <file> -n <1/0> -d <1/0> -w <number> -o <file>
     	-i	File containing list of genes information
-	-b	*.bed file 1 with tags in BED format
+        -b	*.bed file 1 with tags in BED format
         -s      *File containing chromsome lengths in UCSC format (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
         -n      1 for normalization by number of tags, 0 otherwise
         -F      Average fragment length for tag shifting, e.g., 160, 200, 300
