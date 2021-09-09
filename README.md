@@ -18,6 +18,7 @@ ChIP-Seq Data analysis
 File formats: 
 
 	(1) File with gene information (-i) should be provided in the following format 
+	
   	 name    chrom   strand  txStart txEnd   cdsStart        cdsEnd  exonCount       exonStarts      exonEnds        name2
   	 NM_028778       chr1    +       134212701       134230065       134212806       134228958       7       134212701,134221529,134224273,134224707,134226534,134227135,134227897,  134213049,134221650,134224425,134224773,134226654,134227268,134230065,    Nuak2
   	 .....
