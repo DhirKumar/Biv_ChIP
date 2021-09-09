@@ -15,8 +15,8 @@ Step1 : Generate the read tagdensity profiles for each promoter from bed formatt
         -w       number of base pairs to be considered on both sides of the TSS; e.g., 500
         -o      *name of the output file
 File formats: 
-	(1) File with gene information (-i) should be provided in the following format
-   
+
+	(1) File with gene information (-i) should be provided in the following format 
   	 name    chrom   strand  txStart txEnd   cdsStart        cdsEnd  exonCount       exonStarts      exonEnds        name2
   	 NM_028778       chr1    +       134212701       134230065       134212806       134228958       7       134212701,134221529,134224273,134224707,134226534,134227135,134227897,  134213049,134221650,134224425,134224773,134226654,134227268,134230065,    Nuak2
   	 .....
@@ -33,8 +33,9 @@ File formats:
    	 .............
 	   
 The code outputs two files. For the given example-
-(1) H3K27me3_0hr_ES1546_TagDensity.txt -> Average tagdensity vector for each 100bp bin within the promoter window
-(2) H3K27me3_0hr_ES1546_TagDensity.txt_geneWise.txt-> For each gene promoter the tagdnesity vector for each of the 100bp non-overlapping bin 
+
+	(1) H3K27me3_0hr_ES1546_TagDensity.txt -> Average tagdensity vector for each 100bp bin within the promoter window
+	(2) H3K27me3_0hr_ES1546_TagDensity.txt_geneWise.txt-> For each gene promoter the tagdnesity vector for each of the 100bp non-overlapping bin 
 
 Step2: Generate the read tagdensity profiles for each promoter from bed formatted read alignments from genomic-input data in same manner
 >perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b INPUT/INPUT_0hr_ES1554.bed -s /ddn/gs1/group/jothi/jothidata/UCSC/Data/mm9/mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o INPUT/INPUT_0hr_ES1554_TagDensity_2kb.txt &
