@@ -40,7 +40,7 @@ Input file formats:
 	 .....	 
 
 
->Example: perl genePromoterTagDensity.pl -i refSeqGenes.txt -b H3K4me3_read_bed_format.txt -s mm9_chrLengths.txt -n 1 -F 200 -r 0 -w 10000 -o H3K4me3_readDensity.txt
+>Example: perl genePromoterTagDensity.pl -i mm9_refSeqGenes.txt -b H3K4me3_read_bed_format.txt -s mm9_chrLengths.txt -n 1 -F 200 -r 0 -w 10000 -o H3K4me3_readDensity.txt
 
 
 The code outputs two files. For example, if your output file name (-o) is H3K4me3_readDensity.txt, you get the following two output files:
@@ -87,10 +87,10 @@ The code outputs one file containing a list of gene promoters with H3K27me3 enri
 
         -A      input file containing promoters with H3K4me3 enrichment 
         -B      input file containing promoters with H3K27me3 enrichment
-        -P      input file fontaining list of genes in UCSC format
+        -P      input file containing list of genes in UCSC format
         -o      output file into which results will be stored	
 
->Example: >perl Annotate_Chromatin_state_github.pl -A H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -B H3K27me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -P -o myCell_promoter_chromatin_states.txt
+>Example: >perl Annotate_Chromatin_state_github.pl -A H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -B H3K27me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -P mm9_refSeqGenes.txt -o myCell_promoter_chromatin_states.txt
 
 The code outputs one file containing a list of all gene promoters (-P) and their chromatin state. For the example shown above, you will get an output file named myCell_promoter_chromatin_states.txt:
 
