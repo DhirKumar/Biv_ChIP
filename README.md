@@ -40,10 +40,13 @@ Input file formats:
 	 .....	 
 
 
-The code outputs two files. For the given example-
+The code outputs two files. For example, if your output file name (-o) is H3K4me3_readDensity.txt, you get the following two output files:
 
-	(1) H3K27me3_0hr_ES1546_TagDensity.txt -> Average tagdensity vector for each 100bp bin within the promoter window
-	(2) H3K27me3_0hr_ES1546_TagDensity.txt_geneWise.txt-> For each gene promoter the tagdnesity vector for each of the 100bp non-overlapping bin 
+	(1) H3K4me3_readDensity.txt containing average read density (per bp per read sequenced) within each of the 100 bp non-overlapping windows spanning +/-(-w) of TSS
+	
+	window_no	total_no_reads_within_that_window_for_all_genes	no_bp_spanning_that_window_for_all_genes	avg_read_density_per_window_per_million_reads
+	
+	(2) H3K4me3_readDensity.txt_geneWise.txt-> For each gene promoter the tagdnesity vector for each of the 100bp non-overlapping bin 
 
 **Step2:** Generate read/tag density profiles for each gene promoter from BED-formatted genomic-input read alignments, shown below
 >perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b INPUT/INPUT_0hr_ES1554.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o INPUT/INPUT_0hr_ES1554_TagDensity_2kb.txt &
