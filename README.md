@@ -39,7 +39,8 @@ Input file formats:
   	 .....
 	 .....	 
 
-\>perl genePromoterTagDensity.pl -i refSeqGenes.txt -b H3K4me3_read_bed_format.txt -s mm9_chrLengths.txt -n 1 -F 200 -r 0 -w 10000 -o H3K4me3_readDensity.txt
+
+>Example: perl genePromoterTagDensity.pl -i refSeqGenes.txt -b H3K4me3_read_bed_format.txt -s mm9_chrLengths.txt -n 1 -F 200 -r 0 -w 10000 -o H3K4me3_readDensity.txt
 
 
 The code outputs two files. For example, if your output file name (-o) is H3K4me3_readDensity.txt, you get the following two output files:
@@ -63,7 +64,7 @@ The code outputs two files. For example, if your output file name (-o) is H3K4me
         -D      FDR threshold as a percentage between 0 to 100
         -F      Minimum FoldOverInput threshold (e.g. 3.0) for H3K4me3/H3K27me3 enrichment consideration
 	
-e.g., \>perl EnrichedGenePromoterReporting.pl -I Input_H3K4me3_readDensity.txt_geneWise.txt -C H3K4me3_readDensity.txt_geneWise.txt -D 1 -F 3
+>Example: >perl EnrichedGenePromoterReporting.pl -I Input_H3K4me3_readDensity.txt_geneWise.txt -C H3K4me3_readDensity.txt_geneWise.txt -D 1 -F 3
 	
 The code outputs one file containing a list of gene promoters with H3K4me3 enrichment. For the example shown above, you will get an output file named H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt:
 
@@ -90,6 +91,6 @@ The code outputs one file containing a list of gene promoters with H3K27me3 enri
         -P      input file fontaining list of genes in UCSC format
         -o      output file into which results will be stored	
 
-e.g., \>perl Annotate_Chromatin_state_github.pl -A H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -B H3K27me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -P -o myCell_promoter_chromatin_states.txt
+>Example: >perl Annotate_Chromatin_state_github.pl -A H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -B H3K27me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -P -o myCell_promoter_chromatin_states.txt
 
 input file fontaining list of genes in UCSC format
