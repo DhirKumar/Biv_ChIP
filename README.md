@@ -42,12 +42,12 @@ Input file formats:
 
 The code outputs two files. For example, if your output file name (-o) is H3K4me3_readDensity.txt, you get the following two output files:
 
-	(1) H3K4me3_readDensity.txt containing average read density (per bp per read sequenced) within each of the 100 bp non-overlapping windows spanning +/-(-w) of TSS, in teh following format:
+	(1) H3K4me3_readDensity.txt containing average read density (per bp per read sequenced) within each of the 100 bp non-overlapping windows spanning +/-(-w) of TSS, in the following format:
 	
 	window_no	total_no_reads_within_that_window_for_all_genes	no_bp_spanning_that_window_for_all_genes	avg_read_density_per_bp_per_read_sequenced	sem_of_average
 	
 	
-	(2) H3K4me3_readDensity.txt_geneWise.txt containing a matrix of read densitites for each of the 100bp windows for each gene promoter
+	(2) H3K4me3_readDensity.txt_geneWise.txt containing a matrix of read densitites for each of the 100bp windows for each gene promoter, in the following format:
 	
 	gene_ID	chr	txStart	txEnd	window_1	window_2	...	window_n
 	
