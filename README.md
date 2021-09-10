@@ -4,7 +4,7 @@ ChIP-Seq Data analysis
 
 **Step1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, as shown below. This script takes as input, among others, a file containing a set of genes (UCSC format), BED-formatted file containing ChIP-Seq reads (H3K4me3, H3K27me3, or Input) and a file containing chromosome lengths in UCSC format (e.g., https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes). Run this script two separate times to generate read density profiles for H3K4me3 and corresponding Input (using the same value for -w), and repeat this for H3K27me3 and corresponding Input (using the same value for -w) 
 
->USAGE: perl genePromoterTagDensity.pl -i \<input-file\> -b \<input-file\> -s \<input-file\> -n \<1/0\> -F \<int\> -r \<1/0\> -w \<number\> -o \<output-file\>
+>USAGE: \>perl genePromoterTagDensity.pl -i \<input-file\> -b \<input-file\> -s \<input-file\> -n \<1/0\> -F \<int\> -r \<1/0\> -w \<number\> -o \<output-file\>
 
         -i      input file fontaining list of genes in UCSC format
         -b      input file containing ChIP-Seq reads/tags in BED format
