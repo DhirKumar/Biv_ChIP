@@ -2,7 +2,7 @@
 
 ChIP-Seq Data analysis 
 
-**Step1 :** Generate read/tag density profiles for each gene promoter from BED formatted read alignments from ChIP-Seq data as shown below
+**Step1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, shown below
 
 >perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b H3K27me3/H3K27me3_0hr_ES1546.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o H3K27me3/H3K27me3_0hr_ES1546_TagDensity.txt &
 
@@ -39,7 +39,7 @@ The code outputs two files. For the given example-
 	(1) H3K27me3_0hr_ES1546_TagDensity.txt -> Average tagdensity vector for each 100bp bin within the promoter window
 	(2) H3K27me3_0hr_ES1546_TagDensity.txt_geneWise.txt-> For each gene promoter the tagdnesity vector for each of the 100bp non-overlapping bin 
 
-**Step2:** Generate the read tagdensity profiles for each promoter from bed formatted read alignments from genomic-input data in same manner
+**Step2:** Generate read/tag density profiles for each gene promoter from BED-formatted genomic-input read alignments, shown below
 >perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b INPUT/INPUT_0hr_ES1554.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o INPUT/INPUT_0hr_ES1554_TagDensity_2kb.txt &
 
 **Step3:** generate List of the promoters enriched for H3K27me3 as demonstrated in the example below 
