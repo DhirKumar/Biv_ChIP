@@ -7,8 +7,8 @@ ChIP-Seq Data analysis
 >perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b H3K27me3/H3K27me3_0hr_ES1546.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o H3K27me3/H3K27me3_0hr_ES1546_TagDensity.txt &
 
     USAGE: genePromoterTagDensity.pl -i <file> -b <file> -s <file> -n <1/0> -d <1/0> -w <number> -o <file>
-        -i	File containing list of genes information
-        -b	*.bed file 1 with tags in BED format
+        -i      File containing list of genes information
+        -b      *.bed file 1 with tags in BED format
         -s      *File containing chromsome lengths in UCSC format (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
         -n      1 for normalization by number of tags, 0 otherwise
         -F      Average fragment length for tag shifting, e.g., 160, 200, 300
