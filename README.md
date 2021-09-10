@@ -92,3 +92,6 @@ The code outputs one file containing a list of gene promoters with H3K27me3 enri
 
 >Example: >perl Annotate_Chromatin_state_github.pl -A H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -B H3K27me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -P -o myCell_promoter_chromatin_states.txt
 
+The code outputs one file containing a list of all gene promoters (-P) and their chromatin state. For the example shown above, you will get an output file named myCell_promoter_chromatin_states.txt:
+
+
