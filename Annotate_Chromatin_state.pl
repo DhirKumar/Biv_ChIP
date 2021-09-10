@@ -12,19 +12,18 @@ if($numArgs != 10)
   print "\t-A\tFile containing gene/transcript-IDS enriched for H3K4me3 \n";
   print "\t-B\tFile containing gene/transcript-IDS enriched for H3K27me3\n";
   print "\t-P\tFile containing promoter information with transcript IDs in the first column of the file\n";
-  print "\t-l\tColumn label for the cell type. e.g. mESC_0hr\n";
   print "\t-o\t*name of the output file\n";
   die "\n";
 }
 
 my %Options;
-my $ok = getopts('A:B:P:l:o:', \%Options);
+my $ok = getopts('A:B:P:o:', \%Options);
 die "\n\nInvalid options on the command line\n\n" if (!$ok);
 
 my $K4_file = $Options{A};
 my $K27_file = $Options{B};
 my $promoter_file = $Options{P};
-my $lab=$Options{l};
+#my $lab=$Options{l};
 my $outputFileName = $Options{o};
 
 
@@ -79,7 +78,7 @@ foreach my $key(keys(%chromatin_state))
 }
 
 open(OUT,">$outputFileName")|| die("Cannot create output file name");
-print OUT "GENE\t$lab\n",;
+print OUT "GENE\tChromatin-State\n",;
 foreach my $key(keys(%chromatin_state))
 {
   print OUT $key,"\t",join("\t",@{$chromatin_state{$key}}),"\n";
