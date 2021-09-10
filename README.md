@@ -39,6 +39,8 @@ Input file formats:
   	 .....
 	 .....	 
 
+e.g., \>perl EnrichedGenePromoterReporting.pl -I Input_H3K4me3_readDensity.txt_geneWise.txt -C H3K4me3_readDensity.txt_geneWise.txt
+
 
 The code outputs two files. For example, if your output file name (-o) is H3K4me3_readDensity.txt, you get the following two output files:
 
@@ -61,7 +63,9 @@ The code outputs two files. For example, if your output file name (-o) is H3K4me
         -D      FDR threshold as a percentage between 0 to 100
         -F      Minimum FoldOverInput threshold (e.g. 3.0) for H3K4me3/H3K27me3 enrichment consideration
 	
-The code outputs one file containing a list of gene promoters with H3K4me3 enrichment. For example, if you ran the code with -D 1, -F 3, and -C H3K4me3_readDensity.txt_geneWise.txt, you will get an output file named H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt:
+e.g., \>perl EnrichedGenePromoterReporting.pl -I Input_H3K4me3_readDensity.txt_geneWise.txt -C H3K4me3_readDensity.txt_geneWise.txt -D 1 -F 3
+	
+The code outputs one file containing a list of gene promoters with H3K4me3 enrichment. For the example shown above, you will get an output file named H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt:
 
         gene_ID	RPM	FDR	FoldOverInput
         NM_153552       410.181 100.000 7.879
@@ -72,15 +76,20 @@ The code outputs one file containing a list of gene promoters with H3K4me3 enric
 
 **Step 3:** Repeat Step2 to generate a list of gene promoters enriched for H3K27me3, using the \*\_geneWise.txt" files for H3K27me3 and corresponding Input.
 
+e.g., \>perl EnrichedGenePromoterReporting.pl -I Input_H3K27me3_readDensity.txt_geneWise.txt -C H3K27me3_readDensity.txt_geneWise.txt -D 1 -F 3
 
-**Step 4:** Annotate chromatin states (H3K4me3-only, Bivalent, H3K27me3-only, and Neither/Unmarked) for all gene promoters based on the information gathered from Step 2 (H3K4me3- and H3K27me3-enriched promoters), as shown below.
+The code outputs one file containing a list of gene promoters with H3K27me3 enrichment. For the example shown above, you will get an output file named H3K27me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt:
 
->perl Annotate_Chromatin_state_github.pl -A H3K4me3_enriched_genes_0hr.txt -B H3K27me3_enriched_genes_0hr.txt -P refSeqGenes-mm9 -l mESC_0hr -o mESC_0hr_chromatin.txt
+**Step 4:** Annotate chromatin states (H3K4me3-only, Bivalent, H3K27me3-only, and Neither/Unmarked) for all gene promoters based on the information gathered from Steps 2 and 3 (H3K4me3- and H3K27me3-enriched promoters, respectively), as shown below.
+
+>USAGE: \>perl Annotate_Chromatin_state_github.pl -A \<input-file\> -B \<\input-file\> -P \<input-file\> -o \<input-file\>
 
 	USAGE: Annotate_Chromatin_state.pl -A <file> -B <file> -P <file> -o <file>
         -A      File containing gene/transcript-IDS enriched for H3K4me3
         -B      File containing gene/transcript-IDS enriched for H3K27me3
-        -P      File containing promoter information with transcript IDs in the first column of the file
-        -l      Column label for the cell type. e.g. mESC_0hr
-        -o      *name of the output file
-	
+        -P      input file fontaining list of genes in UCSC format
+        -o      output file into which results will be stored	
+
+e.g., >\perl Annotate_Chromatin_state_github.pl -A H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -B H3K27me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt -P -o myCell_promoter_chromatin_states.txt
+
+input file fontaining list of genes in UCSC format
