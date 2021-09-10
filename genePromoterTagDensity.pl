@@ -8,10 +8,10 @@
 $numArgs = $#ARGV + 1;
 if($numArgs != 16) 
 { 
-  print "\nUSAGE: genePromoterTagDensity.pl -i <input-file> -b <input-file> -s <input-file> -n <1/0> -F <int> -r <1/0> -w <int> -o <output-file>\n\n"; 
+  print "\nUSAGE: perl genePromoterTagDensity.pl -i <input-file> -b <input-file> -s <input-file> -n <1/0> -F <int> -r <1/0> -w <int> -o <output-file>\n\n"; 
   print "\t-i\tinput file fontaining list of genes in UCSC format\n";
   print "\t-b\tinput file containing ChIP-Seq reads/tags in BED format\n";
-  print "\t-s\tinput file containing chromsome lengths in UCSC format (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)\n";
+  print "\t-s\tinput file containing chromsome lengths in UCSC format(https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)\n";
   print "\t-n\t1 for normalization by total number of reads in BED file, 0 otherwise\n";
   print "\t-F\tAverage ChIP-Seq fragment length for read shifting, e.g., 160, 200, 300 \n";
   print "\t-r\t1 (-1/0) if same (opposite, both resp.) strand reads need to be considered; e.g., Gro-Seq data\n";
