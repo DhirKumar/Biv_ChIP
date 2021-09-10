@@ -2,22 +2,22 @@
 
 ChIP-Seq Data analysis 
 
-**Step1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, as shown below. This script takes as input, among others, a BED-formatted file containing ChIP-Seq reads (H3K4me3, H3K27me3, or Input) and a file containing chromosome lengths in UCSC format (e.g., https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
+**Step1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, as shown below. This script takes as input, among others, a file containing a set of genes (UCSC format), BED-formatted file containing ChIP-Seq reads (H3K4me3, H3K27me3, or Input) and a file containing chromosome lengths in UCSC format (e.g., https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes).
 
->perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b H3K27me3/H3K27me3_0hr_ES1546.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o H3K27me3/H3K27me3_0hr_ES1546_TagDensity.txt &
+>USAGE: perl genePromoterTagDensity.pl -i <input-file> -b <input-file> -s <input-file> -n <1/0> -F <int> -r <1/0> -w <number> -o <output-file>
 
-    USAGE: genePromoterTagDensity.pl -i <file> -b <file> -s <file> -n <1/0> -d <1/0> -w <number> -o <file>
-        -i      File containing list of genes information
-        -b      *.bed file 1 with tags in BED format
-        -s      *File containing chromsome lengths in UCSC format (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
-        -n      1 for normalization by number of tags, 0 otherwise
-        -F      Average fragment length for tag shifting, e.g., 160, 200, 300
+        -i      input file fontaining list of genes in UCSC format
+        -b      input file containing ChIP-Seq reads/tags in BED format
+        -s      input file containing chromsome lengths in UCSC format (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
+        -n      1 for normalization by total number of reads in BED file, 0 otherwise
+        -F      Average ChIP-Seq fragment length for read shifting, e.g., 160, 200, 300
         -r      1 (-1/0) if same (opposite, both resp.) strand reads need to be considered; e.g., Gro-Seq data
-        -w       number of base pairs to be considered on both sides of the TSS; e.g., 500
-        -o      *name of the output file
+        -w      number of base pairs up- and down-stream of TSS, for promoter definition ; e.g., 500
+        -o      output file into which results will be stored
+
 Input file formats: 
 
-	(1) File with gene information (-i) should be provided in the following format 
+	(1) File with list of genes in UCSC format (columns tab-separated)
 	
   	 name    chrom   strand  txStart txEnd   cdsStart        cdsEnd  exonCount       exonStarts      exonEnds        name2
   	 NM_028778       chr1    +       134212701       134230065       134212806       134228958       7       134212701,134221529,134224273,134224707,134226534,134227135,134227897,  134213049,134221650,134224425,134224773,134226654,134227268,134230065,    Nuak2
