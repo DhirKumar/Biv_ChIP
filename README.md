@@ -2,7 +2,7 @@
 
 ChIP-Seq Data analysis 
 
-**Step1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, as shown below. This script takes as input, among others, a file containing a set of genes (UCSC format), BED-formatted file containing ChIP-Seq reads (H3K4me3, H3K27me3, or Input) and a file containing chromosome lengths in UCSC format (e.g., https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes).
+**Step1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, as shown below. This script takes as input, among others, a file containing a set of genes (UCSC format), BED-formatted file containing ChIP-Seq reads (H3K4me3, H3K27me3, or Input) and a file containing chromosome lengths in UCSC format (e.g., https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes). Run this script two separate times to generate read density profiles for H3K4me3 and corresponding Input (using the same value for -w), and repeat this for H3K27me3 and corresponding Input (using the same value for -w) 
 
 >USAGE: perl genePromoterTagDensity.pl -i \<input-file\> -b \<input-file\> -s \<input-file\> -n \<1/0\> -F \<int\> -r \<1/0\> -w \<number\> -o \<output-file\>
 
@@ -52,10 +52,8 @@ The code outputs two files. For example, if your output file name (-o) is H3K4me
 	gene_ID	chr	txStart	txEnd	window_1	window_2	...	window_n
 	
 
-**Step2:** Generate read/tag density profiles for each gene promoter from BED-formatted genomic-input read alignments, shown below
->perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b INPUT/INPUT_0hr_ES1554.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o INPUT/INPUT_0hr_ES1554_TagDensity_2kb.txt &
+**Step2:** Generate a list of gene promoters enriched for H3K4me3, using the \*\_geneWise.txt" files for H3K4me3 and corresponding Input, as shown below:
 
-**Step3:** generate List of the promoters enriched for H3K27me3 as demonstrated in the example below 
 >perl EnrichedGenePromoterReporting.pl -I ./INPUT/INPUT_0hr_ES1554_TagDensity_2kb.txt_geneWise.txt -C ./H3K27me3/H3K27me3_0hr_ES1546_TagDensity.txt_geneWise.txt -D 1 -F 3 -o H3K27me3_2kb_enriched_genes_0hr.txt
 
 	USAGE: EnrichedGenePromoterReporting.pl -I <file> -C <file> -D <number> -F <number>  -o <file>
