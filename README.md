@@ -94,12 +94,12 @@ The code outputs one file containing a list of gene promoters with H3K27me3 enri
 
 The code outputs one file containing a list of all gene promoters (-P) and their chromatin state. For the example shown above, you will get an output file named myCell_promoter_chromatin_states.txt:
 
-		GENE    Chromatin-State
-		NM_001277247    K27
-		NM_010485       K4
-		NM_024457       K4
-		NM_022886       none
-		NM_010308       Bivalent
-		.......
+        GENE    Chromatin-State
+        NM_001277247    K27
+        NM_010485       K4
+        NM_024457       K4
+        NM_022886       none
+        NM_010308       Bivalent
+        .......
 
 
