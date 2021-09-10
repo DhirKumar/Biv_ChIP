@@ -12,7 +12,7 @@ ChIP-Seq Data analysis
         -n      1 for normalization by total number of reads in BED file, 0 otherwise
         -F      Average ChIP-Seq fragment length for read shifting, e.g., 160, 200, 300
         -r      1 (-1/0) if same (opposite, both resp.) strand reads need to be considered; e.g., Gro-Seq data
-        -w      number of base pairs up- and down-stream of TSS, for promoter definition ; e.g., 500
+        -w      number of base pairs up- and down-stream of TSS, for promoter definition (in multiples of 100); e.g., 500
         -o      output file into which results will be stored
 
 Input file formats: 
@@ -23,20 +23,22 @@ Input file formats:
   	 NM_028778       chr1    +       134212701       134230065       134212806       134228958       7       134212701,134221529,134224273,134224707,134226534,134227135,134227897,  134213049,134221650,134224425,134224773,134226654,134227268,134230065,    Nuak2
   	 .....
 	 .....
-	 
-	(3) File containing ChIP-Seq read alignments (-b) should be provided in the BED format (tab-separated)
+
+
+	(2) File containing ChIP-Seq read alignments (-b) should be provided in the BED format (tab-separated)
    
   	 chr1    3018108 3018158 U       0       -
   	 chr1    3001762 3001812 U       0       -
    	 .............
-	 
-	 (2) File containing chromosome length information (-s) should be provided in the following format (tab-separated)
+
+
+	 (3) File containing chromosome length information (-s) should be provided in the following format (tab-separated)
    
   	 chr1    197195432  
   	 chr2    181748087
   	 .....
 	 .....	 
-	
+
 
 The code outputs two files. For the given example-
 
