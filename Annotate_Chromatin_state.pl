@@ -8,7 +8,7 @@ use Getopt::Std;
 my $numArgs = $#ARGV + 1;
 if($numArgs != 10)
 {
-  print "\nUSAGE: Annotate_Chromatin_state.pl -A <file> -B <file> -P <file> -o <file>\n";
+  print "\nUSAGE: perl Annotate_Chromatin_state.pl -A <file> -B <file> -P <file> -o <file>\n";
   print "\t-A\tFile containing gene/transcript-IDS enriched for H3K4me3 \n";
   print "\t-B\tFile containing gene/transcript-IDS enriched for H3K27me3\n";
   print "\t-P\tFile containing promoter information with transcript IDs in the first column of the file\n";
