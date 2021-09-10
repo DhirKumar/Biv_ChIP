@@ -2,7 +2,7 @@
 
 ChIP-Seq Data analysis 
 
-**Step1 :** Generate the read tagdensity profiles for each promoter from bed formatted read alignments from H3K27me3 ChIP-Seq data in same manner as below
+**Step1 :** Generate read/tag density profiles for each promoter from BED formatted read alignments from ChIP-Seq data as shown below
 
 >perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b H3K27me3/H3K27me3_0hr_ES1546.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 2000 -o H3K27me3/H3K27me3_0hr_ES1546_TagDensity.txt &
 
