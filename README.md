@@ -39,7 +39,7 @@ Input file formats:
   	 .....
 	 .....	 
 
-e.g., \>perl genePromoterTagDensity.pl -i refSeqGenes.txt -b H3K4me3_read_bed_format.txt -s mm9_chrLengths.txt -n 1 -F 200 -r 0 -w 10000 -o H3K4me3_readDensity.txt
+\>perl genePromoterTagDensity.pl -i refSeqGenes.txt -b H3K4me3_read_bed_format.txt -s mm9_chrLengths.txt -n 1 -F 200 -r 0 -w 10000 -o H3K4me3_readDensity.txt
 
 
 The code outputs two files. For example, if your output file name (-o) is H3K4me3_readDensity.txt, you get the following two output files:
