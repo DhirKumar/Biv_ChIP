@@ -8,7 +8,7 @@ ChIP-Seq Data analysis
 
         -i      input file fontaining list of genes in UCSC format
         -b      input file containing ChIP-Seq reads/tags in BED format
-        -s      input file containing chromsome (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
+        -s      input file containing chromsome lengths in UCSC format (https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes)
         -n      1 for normalization by total number of reads in BED file, 0 otherwise
         -F      Average ChIP-Seq fragment length for read shifting, e.g., 160, 200, 300
         -r      1 (-1/0) if same (opposite, both resp.) strand reads need to be considered; e.g., Gro-Seq data
