@@ -86,7 +86,7 @@ The code outputs one file containing a list of gene promoters with H3K27me3 enri
 >USAGE: \>perl Annotate_Chromatin_state_github.pl -A \<input-file\> -B \<\input-file\> -P \<input-file\> -o \<input-file\>
 
         -A      input file containing promoters with H3K4me3 enrichment 
-	-B      input file containing promoters with H3K27me3 enrichment
+        -B      input file containing promoters with H3K27me3 enrichment
         -P      input file fontaining list of genes in UCSC format
         -o      output file into which results will be stored	
 
