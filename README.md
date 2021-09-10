@@ -2,7 +2,7 @@
 
 ChIP-Seq Data analysis 
 
-**Step1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, as shown below. This script takes as input, among others, a file containing a set of genes (UCSC format), BED-formatted file containing ChIP-Seq reads (H3K4me3, H3K27me3, or Input) and a file containing chromosome lengths in UCSC format (e.g., https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes). Run this script two separate times to generate read density profiles for H3K4me3 and corresponding Input (using the same value for -w), and repeat this for H3K27me3 and corresponding Input (using the same value for -w) 
+**Step 1 :** Generate read/tag density profiles for each gene promoter from BED-formatted ChIP-Seq read alignments, as shown below. This script takes as input, among others, a file containing a set of genes (UCSC format), BED-formatted file containing ChIP-Seq reads (H3K4me3, H3K27me3, or Input) and a file containing chromosome lengths in UCSC format (e.g., https://hgdownload.soe.ucsc.edu/goldenPath/mm9/bigZips/mm9.chrom.sizes). Run this script two separate times to generate read density profiles for H3K4me3 and corresponding Input (using the same value for -w), and repeat this for H3K27me3 and corresponding Input (using the same value for -w) 
 
 >USAGE: \>perl genePromoterTagDensity.pl -i \<input-file\> -b \<input-file\> -s \<input-file\> -n \<1/0\> -F \<int\> -r \<1/0\> -w \<number\> -o \<output-file\>
 
@@ -52,7 +52,7 @@ The code outputs two files. For example, if your output file name (-o) is H3K4me
 	gene_ID	chr	txStart	txEnd	window_1	window_2	...	window_n
 	
 
-**Step2:** Generate a list of gene promoters enriched for H3K4me3, using the \*\_geneWise.txt" files for H3K4me3 and corresponding Input, as shown below:
+**Step 2:** Generate a list of gene promoters enriched for H3K4me3, using the \*\_geneWise.txt" files for H3K4me3 and corresponding Input, as shown below:
 
 >USAGE: \>perl EnrichedGenePromoterReporting.pl -I \<input-file\> -C \<input-file\> -D \<int\> -F \<number\>
 
@@ -61,27 +61,19 @@ The code outputs two files. For example, if your output file name (-o) is H3K4me
         -D      FDR threshold as a percentage between 0 to 100
         -F      Minimum FoldOverInput threshold (e.g. 3) for H3K4me3/H3K27me3 enrichment consideration
 	
-The code outputs one file. For example, if your -C file name is H3K4me3_500bp_enriched_genes.txt, you will get the following two output files:
+The code outputs one file containing a list of gene promoters with H3K4me3 enrichment. For example, if you ran the code with -D 1, -F 3, and -C H3K4me3_readDensity.txt_geneWise.txt, you will get an output file named H3K4me3_readDensity.txt_geneWise.txtFDR1_min3FoldOverInput.txt:
 
-	(1) H3K4me3_readDensity.txt containing average read density (per bp per read sequenced) within each of the 100 bp non-overlapping windows spanning +/-(-w) of TSS, in the following format:
-	
-	window_no	total_no_reads_within_that_window_for_all_genes	no_bp_spanning_that_window_for_all_genes	avg_read_density_per_bp_per_read_sequenced	sem_of_average
-	
-	
-	(2) H3K4me3_readDensity.txt_geneWise.txt containing a matrix of read densitites for each of the 100bp windows for each gene promoter, in the following format:
-	
-	gene_ID	chr	txStart	txEnd	window_1	window_2	...	window_n
+	gene_ID	RPM	FDR	FoldOverInput
+        NM_153552       410.181 100.000 7.879
+        NR_015574       405.422 66.667  13.539
+	.....
+	.....
 
 
-**Step3:** Repeat Steps 1-3 for H3K4me3 modification and generate List of the promoters enriched for H3K4me3 as demonstrated in the example below 
+**Step 3:** Repeat Step2 to generate a list of gene promoters enriched for H3K27me3, using the \*\_geneWise.txt" files for H3K27me3 and corresponding Input.
 
->perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b H3K4me3/H3K4me3_0hr_ES1530.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 500 -o H3K4me3/H3K4me3_0hr_ES1530_TagDensity.txt &
 
->perl genePromoterTagDensity.pl -i refSeqGenes-mm9 -b INPUT/INPUT_0hr_ES1554.bed -s mm9_chrom_lengths.txt -n 1 -F 200 -r 0 -w 500 -o INPUT/INPUT_0hr_ES1554_TagDensity_500bp.txt &
-
->perl EnrichedGenePromoterReporting.pl -I ./INPUT/INPUT_0hr_ES1554_TagDensity_500bp.txt_geneWise.txt -C ./H3K27me3/H3K4me3_0hr_ES1530_TagDensity.txt_geneWise.txt -D 1 -F 3 -o H3K4me3_500bp_enriched_genes_0hr.txt
-
-**Step5:** Annotate four class chromatin state for a given timepoint as demostrated in the following example
+**Step 4:** Annotate gene promoters into four class chromatin state for a given timepoint as demostrated in the following example
 
 >perl Annotate_Chromatin_state_github.pl -A H3K4me3_enriched_genes_0hr.txt -B H3K27me3_enriched_genes_0hr.txt -P refSeqGenes-mm9 -l mESC_0hr -o mESC_0hr_chromatin.txt
 
